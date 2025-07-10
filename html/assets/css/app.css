@@ -45,6 +45,7 @@ body {
 
 a {
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 code,
@@ -133,15 +134,19 @@ samp {
 }
 
 .menu-app {
-  position: absolute;
+  position: fixed;
   width: 480px;
   bottom: 0;
+  z-index: 99999999;
+  background: #ffffff;
 }
 
 .header-app {
-  position: absolute;
+  position: fixed;
   width: 480px;
   top: 0;
+  z-index: 99999999;
+  background: #ffffff;
 }
 
 .text-red {
