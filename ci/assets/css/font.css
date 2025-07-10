@@ -1,0 +1,579 @@
+/* Variable Fonts */
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* Static Fonts */
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/static/Urbanist-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Font SIZE */
+.fs-8px {
+  font-size: 8px !important;
+}
+
+.fs-9px {
+  font-size: 9px !important;
+}
+
+.fs-10px {
+  font-size: 10px !important;
+}
+
+.fs-11px {
+  font-size: 11px !important;
+}
+
+.fs-12px {
+  font-size: 12px !important;
+}
+
+.fs-13px {
+  font-size: 13px !important;
+}
+
+.fs-14px {
+  font-size: 14px !important;
+}
+
+.fs-15px {
+  font-size: 15px !important;
+}
+
+.fs-16px {
+  font-size: 16px !important;
+}
+
+.fs-17px {
+  font-size: 17px !important;
+}
+
+.fs-18px {
+  font-size: 18px !important;
+}
+
+.fs-19px {
+  font-size: 19px !important;
+}
+
+.fs-20px {
+  font-size: 20px !important;
+}
+
+.fs-21px {
+  font-size: 21px !important;
+}
+
+.fs-22px {
+  font-size: 22px !important;
+}
+
+.fs-23px {
+  font-size: 23px !important;
+}
+
+.fs-24px {
+  font-size: 24px !important;
+}
+
+.fs-25px {
+  font-size: 25px !important;
+}
+
+.fs-26px {
+  font-size: 26px !important;
+}
+
+.fs-27px {
+  font-size: 27px !important;
+}
+
+.fs-28px {
+  font-size: 28px !important;
+}
+
+.fs-29px {
+  font-size: 29px !important;
+}
+
+.fs-30px {
+  font-size: 30px !important;
+}
+
+.fs-31px {
+  font-size: 31px !important;
+}
+
+.fs-32px {
+  font-size: 32px !important;
+}
+
+.fs-33px {
+  font-size: 33px !important;
+}
+
+.fs-34px {
+  font-size: 34px !important;
+}
+
+.fs-35px {
+  font-size: 35px !important;
+}
+
+.fs-36px {
+  font-size: 36px !important;
+}
+
+.fs-37px {
+  font-size: 37px !important;
+}
+
+.fs-38px {
+  font-size: 38px !important;
+}
+
+.fs-39px {
+  font-size: 39px !important;
+}
+
+.fs-40px {
+  font-size: 40px !important;
+}
+
+.fs-41px {
+  font-size: 41px !important;
+}
+
+.fs-42px {
+  font-size: 42px !important;
+}
+
+.fs-43px {
+  font-size: 43px !important;
+}
+
+.fs-44px {
+  font-size: 44px !important;
+}
+
+.fs-45px {
+  font-size: 45px !important;
+}
+
+.fs-46px {
+  font-size: 46px !important;
+}
+
+.fs-47px {
+  font-size: 47px !important;
+}
+
+.fs-48px {
+  font-size: 48px !important;
+}
+
+.fs-49px {
+  font-size: 49px !important;
+}
+
+.fs-50px {
+  font-size: 50px !important;
+}
+
+.fs-45px {
+  font-size: 45px !important;
+}
+
+.fs-46px {
+  font-size: 46px !important;
+}
+
+.fs-47px {
+  font-size: 47px !important;
+}
+
+.fs-48px {
+  font-size: 48px !important;
+}
+
+.fs-49px {
+  font-size: 49px !important;
+}
+
+.fs-50px {
+  font-size: 50px !important;
+}
+
+.fs-51px {
+  font-size: 51px !important;
+}
+
+.fs-52px {
+  font-size: 52px !important;
+}
+
+.fs-53px {
+  font-size: 53px !important;
+}
+
+.fs-54px {
+  font-size: 54px !important;
+}
+
+.fs-55px {
+  font-size: 55px !important;
+}
+
+.fs-56px {
+  font-size: 56px !important;
+}
+
+.fs-57px {
+  font-size: 57px !important;
+}
+
+.fs-58px {
+  font-size: 58px !important;
+}
+
+.fs-59px {
+  font-size: 59px !important;
+}
+
+.fs-60px {
+  font-size: 60px !important;
+}
+
+.fs-61px {
+  font-size: 61px !important;
+}
+
+.fs-62px {
+  font-size: 62px !important;
+}
+
+.fs-63px {
+  font-size: 63px !important;
+}
+
+.fs-64px {
+  font-size: 64px !important;
+}
+
+.fs-65px {
+  font-size: 65px !important;
+}
+
+.fs-66px {
+  font-size: 66px !important;
+}
+
+.fs-67px {
+  font-size: 67px !important;
+}
+
+.fs-68px {
+  font-size: 68px !important;
+}
+
+.fs-69px {
+  font-size: 69px !important;
+}
+
+.fs-70px {
+  font-size: 70px !important;
+}
+
+.fs-71px {
+  font-size: 71px !important;
+}
+
+.fs-72px {
+  font-size: 72px !important;
+}
+
+.fs-73px {
+  font-size: 73px !important;
+}
+
+.fs-74px {
+  font-size: 74px !important;
+}
+
+.fs-75px {
+  font-size: 75px !important;
+}
+
+.fs-76px {
+  font-size: 76px !important;
+}
+
+.fs-77px {
+  font-size: 77px !important;
+}
+
+.fs-78px {
+  font-size: 78px !important;
+}
+
+.fs-79px {
+  font-size: 79px !important;
+}
+
+.fs-80px {
+  font-size: 80px !important;
+}
+
+.fs-81px {
+  font-size: 81px !important;
+}
+
+.fs-82px {
+  font-size: 82px !important;
+}
+
+.fs-83px {
+  font-size: 83px !important;
+}
+
+.fs-84px {
+  font-size: 84px !important;
+}
+
+.fs-85px {
+  font-size: 85px !important;
+}
+
+.fs-86px {
+  font-size: 86px !important;
+}
+
+.fs-87px {
+  font-size: 87px !important;
+}
+
+.fs-88px {
+  font-size: 88px !important;
+}
+
+.fs-89px {
+  font-size: 89px !important;
+}
+
+.fs-90px {
+  font-size: 90px !important;
+}
+
+.fs-91px {
+  font-size: 91px !important;
+}
+
+.fs-92px {
+  font-size: 92px !important;
+}
+
+.fs-93px {
+  font-size: 93px !important;
+}
+
+.fs-94px {
+  font-size: 94px !important;
+}
+
+.fs-95px {
+  font-size: 95px !important;
+}
+
+.fs-96px {
+  font-size: 96px !important;
+}
+
+.fs-97px {
+  font-size: 97px !important;
+}
+
+.fs-98px {
+  font-size: 98px !important;
+}
+
+.fs-99px {
+  font-size: 99px !important;
+}
+
+.fs-100px {
+  font-size: 100px !important;
+}
+
+/* Font-weight CSS dari 100 hingga 900 */
+.fw-100 {
+  font-weight: 100;
+  /* Tipis */
+}
+
+.fw-200 {
+  font-weight: 200;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+  /* Normal */
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+  /* Tebal */
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+.fw-900 {
+  font-weight: 900;
+  /* Sangat tebal */
+}
