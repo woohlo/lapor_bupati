@@ -1,3 +1,13 @@
+function goTo(link, delay = 0) {
+	if (typeof link === "string" && link.trim() !== "") {
+		setTimeout(() => {
+			window.location.href = link;
+		}, delay);
+	} else {
+		console.warn("Link tidak valid:", link);
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	const swiperElement = document.querySelector(".mySwiper");
 	if (swiperElement) {
@@ -34,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					document.getElementById("modalLoginSuccess"),
 				);
 				myModal.show();
+				goTo("index.html", 2000);
 			});
 	}
 
@@ -51,6 +62,25 @@ document.addEventListener("DOMContentLoaded", function () {
 					document.getElementById("modalRegisterSuccess"),
 				);
 				myModal.show();
+				goTo("index.html", 2000);
+			});
+	}
+
+	const formReport = document.querySelector("#formReport");
+
+	if (formReport) {
+		document
+			.getElementById("formReport")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
+
+				// Lakukan validasi atau proses form di sini jika perlu
+
+				const myModal = new bootstrap.Modal(
+					document.getElementById("modalReportSuccess"),
+				);
+				myModal.show();
+				goTo("report.html", 2000);
 			});
 	}
 
