@@ -569,3 +569,7 @@ img.xs {
 .swiper-pagination-progressbar-fill {
   background: #ffffff; /* putih solid */
 }
+
+.modal {
+  z-index: 999999999 !important;
+}
