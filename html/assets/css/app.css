@@ -573,3 +573,7 @@ img.xs {
 .modal {
   z-index: 999999999 !important;
 }
+
+.content.has-header {
+  margin-top: 5rem !important;
+}
