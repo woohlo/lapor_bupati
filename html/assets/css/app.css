@@ -55,6 +55,10 @@ samp {
   font-family: var(--app-font);
 }
 
+.lh-normal {
+  line-height: normal !important;
+}
+
 .bg-lazy {
   background-color: #f4e5f9 !important;
 }
