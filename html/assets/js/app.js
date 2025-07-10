@@ -19,15 +19,51 @@ document.addEventListener("DOMContentLoaded", function () {
 	} else {
 		console.warn("Element .mySwiper tidak ditemukan!");
 	}
-});
 
-document.getElementById("formLogin").addEventListener("submit", function (e) {
-	e.preventDefault();
+	const formLogin = document.querySelector("#formLogin");
 
-	// Lakukan validasi atau proses form di sini jika perlu
+	if (formLogin) {
+		document
+			.getElementById("formLogin")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
 
-	const myModal = new bootstrap.Modal(
-		document.getElementById("modalLoginSuccess"),
-	);
-	myModal.show();
+				// Lakukan validasi atau proses form di sini jika perlu
+
+				const myModal = new bootstrap.Modal(
+					document.getElementById("modalLoginSuccess"),
+				);
+				myModal.show();
+			});
+	}
+
+	const logoutBtn = document.querySelector("#logoutBtn");
+	if (logoutBtn) {
+		document
+			.getElementById("logoutBtn")
+			.addEventListener("click", function () {
+				Swal.fire({
+					title: "Keluar",
+					text: "Apakah Anda yakin ingin keluar akun?",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#d33",
+					cancelButtonColor: "#6c757d",
+					confirmButtonText: "Ya, Keluar!",
+					cancelButtonText: "Batal",
+				}).then((result) => {
+					if (result.isConfirmed) {
+						Swal.fire({
+							title: "Berhasil logout!",
+							icon: "success",
+							timer: 1500,
+							showConfirmButton: false,
+						}).then(() => {
+							// Ganti dengan redirect/logout kamu
+							window.location.href = "login.html";
+						});
+					}
+				});
+			});
+	}
 });
