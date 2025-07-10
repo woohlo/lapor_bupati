@@ -20,3 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		console.warn("Element .mySwiper tidak ditemukan!");
 	}
 });
+
+document.getElementById("formLogin").addEventListener("submit", function (e) {
+	e.preventDefault();
+
+	// Lakukan validasi atau proses form di sini jika perlu
+
+	const myModal = new bootstrap.Modal(
+		document.getElementById("modalLoginSuccess"),
+	);
+	myModal.show();
+});
