@@ -1,0 +1,20 @@
+/* Responsif untuk Tablet */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* Responsif untuk Smartphone */
+@media (max-width: 480px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/* Responsif untuk Desktop */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+}
