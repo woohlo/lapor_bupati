@@ -495,3 +495,10 @@ img.xs {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.bg-lighter {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+.content {
+  width: 100%;
+}
