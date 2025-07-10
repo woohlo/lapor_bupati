@@ -10,7 +10,7 @@ import Isotope from "isotope-layout"; // Isotope JS
 */
 
 // Export function to initialize all scripts
-export function initScripts() {
+function initScripts() {
   "use strict";
 
   /**
@@ -160,7 +160,7 @@ export function initScripts() {
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+        swiperElement.querySelector(".swiper-config").innerHTML.trim(),
       );
 
       if (swiperElement.classList.contains("swiper-tab")) {
@@ -207,7 +207,7 @@ export function initScripts() {
           layoutMode: layout,
           filter: filter,
           sortBy: sort,
-        }
+        },
       );
     });
 
@@ -228,7 +228,7 @@ export function initScripts() {
               aosInit();
             }
           },
-          false
+          false,
         );
       });
   });

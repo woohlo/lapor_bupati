@@ -511,3 +511,61 @@ img.xs {
 .content {
   width: 100%;
 }
+
+.swiper {
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Custom posisi tombol */
+.swiper-custom-buttons {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.swiper-custom-buttons .swiper-button-next,
+.swiper-custom-buttons .swiper-button-prev {
+  position: static;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important;
+}
+
+/* PROGRESS BAR ATAS */
+.swiper-pagination-progressbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.3); /* putih transparan */
+  z-index: 20;
+}
+
+.swiper-pagination-progressbar-fill {
+  background: #ffffff; /* putih solid */
+}
