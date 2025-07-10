@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					showCancelButton: true,
 					confirmButtonColor: "#d33",
 					cancelButtonColor: "#6c757d",
-					confirmButtonText: "Ya, Keluar!",
+					confirmButtonText: "Ya, Keluar",
 					cancelButtonText: "Batal",
 				}).then((result) => {
 					if (result.isConfirmed) {
@@ -108,6 +108,36 @@ document.addEventListener("DOMContentLoaded", function () {
 						}).then(() => {
 							// Ganti dengan redirect/logout kamu
 							window.location.href = "login.html";
+						});
+					}
+				});
+			});
+	}
+
+	const clearHistory = document.querySelector("#clearHistory");
+	if (clearHistory) {
+		document
+			.getElementById("clearHistory")
+			.addEventListener("click", function () {
+				Swal.fire({
+					title: "Hapus Riwayat",
+					text: "Apakah Anda yakin ingin menghapus semua riwayat pelaporan?",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#d33",
+					cancelButtonColor: "#6c757d",
+					confirmButtonText: "Ya, Hapus Semua",
+					cancelButtonText: "Batal",
+				}).then((result) => {
+					if (result.isConfirmed) {
+						Swal.fire({
+							title: "Riwayat berhasil dihapus!",
+							icon: "success",
+							timer: 1500,
+							showConfirmButton: false,
+						}).then(() => {
+							// Ganti dengan redirect/logout kamu
+							window.location.href = "history.html";
 						});
 					}
 				});
