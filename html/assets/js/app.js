@@ -37,6 +37,23 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 	}
 
+	const formRegister = document.querySelector("#formRegister");
+
+	if (formRegister) {
+		document
+			.getElementById("formRegister")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
+
+				// Lakukan validasi atau proses form di sini jika perlu
+
+				const myModal = new bootstrap.Modal(
+					document.getElementById("modalRegisterSuccess"),
+				);
+				myModal.show();
+			});
+	}
+
 	const logoutBtn = document.querySelector("#logoutBtn");
 	if (logoutBtn) {
 		document
