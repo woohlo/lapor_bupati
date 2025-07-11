@@ -13,11 +13,11 @@ $menus = [
     'actived' => $menuActived == 'home'
   ],
   [
-    'code' => 'instantion',
+    'code' => 'institution',
     'label' => 'Instansi',
-    'link' => '/instantion',
+    'link' => '/institution',
     'icon' => 'grid',
-    'actived' => $menuActived == 'instantion'
+    'actived' => $menuActived == 'institution'
   ],
   [
     'code' => 'history',
@@ -41,7 +41,7 @@ class="menu-app d-flex align-items-center justify-content-between py-1 px-5 bord
 <?php
 foreach ($menus as $mn => $menu) {
  ?>
- <a href="<?php echo base_url('/');?>" class="btn btn-md <?php echo ($menu['actived']) ? 'text-app' : 'text-gray';?> fs-24px lh-normal"
+ <a href="<?php echo base_url($menu['link']);?>" class="btn btn-md <?php echo ($menu['actived']) ? 'text-app' : 'text-gray';?> fs-24px lh-normal"
   ><i class="icon bi bi-<?php echo ($menu['actived']) ? $menu['icon'] . '-fill' : $menu['icon'];?>"></i>
   <span class="d-block fs-12px <?php echo ($menu['actived']) ? 'text-app' : 'text-gray';?> fw-600"><?php echo $menu['label'];?></span>
 </a>
