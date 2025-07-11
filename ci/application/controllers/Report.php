@@ -85,7 +85,25 @@ class Report extends CI_Controller {
 
 	public function history()
 	{
+		if (!$this->session->userdata('is_login')) {
+	        redirect('/welcome');
+	    }
+
+	    $reports = [];
+	    $result = $this->apilibrary->post('user/viewlapor');
+	    if($result['success']){
+	    	if(is_array($result['data']) && !empty($result['data']) && isset($result['data']['Data'])){
+	    		$result_data = $result['data']['Data'];
+	    		if(is_array($result_data) && !empty($result_data)){
+	    			$reports = $result_data;
+	    		}
+	    	}
+	    }
+
 		$data['content'] = 'pages/history';
+		$data['data'] = [
+			'reports' => $reports
+		];
 		$this->load->view('layout/index', $data);
 	}
 

@@ -16,7 +16,7 @@
 			Pilih Instansi
 		</div>
 	</div>
-	<div class="content mb-5 mt-4 has-header">
+	<div class="content mb-5 mt-4 has-header has-menu">
 		<div class="col-11 m-auto">
 
 			<?php

@@ -20,7 +20,7 @@ $is_empty_text = $is_empty_text . ' (mungkin karena data belum tersedia, sesi lo
 			src="<?php echo base_url('/assets/images/empty.png');?>"
 			/>
 		</div>
-		<h3 class="text-dark"><?php echo $is_empty_title;?></h3>
-		<p class="text-secondary fs-16px"><?php echo $is_empty_text;?></p>
+		<h4 class="text-dark"><?php echo $is_empty_title;?></h4>
+		<p class="text-secondary fs-14px"><?php echo $is_empty_text;?></p>
 	</div>
 </div>

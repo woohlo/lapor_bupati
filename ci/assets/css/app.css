@@ -578,3 +578,7 @@ img.xs {
 .content.has-header {
   margin-top: 5rem !important;
 }
+
+.content.has-menu {
+  margin-bottom: 5rem !important;
+}
