@@ -55,7 +55,21 @@ class Auth extends CI_Controller {
 	        redirect('/welcome');
 	    }
 
+	    $profile = null;
+	    $result = $this->apilibrary->post('user/profile', ['phone' => $this->session->userdata('userphone')]);
+	    if($result['success']){
+	    	if(is_array($result['data']) && !empty($result['data']) && isset($result['data']['Data'])){
+	    		$result_data = $result['data']['Data'];
+	    		if(is_array($result_data) && !empty($result_data)){
+	    			$profile = $result_data[0];
+	    		}
+	    	}
+	    }
+
 		$data['content'] = 'pages/profile';
+		$data['data'] = [
+			'profile' => $profile
+		];
 		$this->load->view('layout/index', $data);
 	}
 
