@@ -3,24 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
+	public function __construct()
+    {
+        parent::__construct();
+    }
+
+
 	public function index()
 	{
-		if (!$this->session->userdata('user_id')) {
+		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
 	    }
 
@@ -30,7 +21,7 @@ class Main extends CI_Controller {
 
 	public function welcome()
 	{
-		if ($this->session->userdata('user_id')) {
+		if ($this->session->userdata('is_login')) {
 	        redirect('/');
 	    }
 
@@ -40,22 +31,7 @@ class Main extends CI_Controller {
 
 	public function login()
 	{
-		$is_login = $this->input->get('is_login');
-		if($is_login == 1){
-			$user_id = 123;
-	        $user_name = 'Dummy';
-
-	        // Set session
-	        $this->session->set_userdata([
-	            'user_id' => $user_id,
-	            'user_name' => $user_name
-	        ]);
-
-	        // Redirect ke home/dashboard setelah login
-	        redirect('/');
-		}
-
-		if ($this->session->userdata('user_id')) {
+		if ($this->session->userdata('is_login')) {
 	        redirect('/');
 	    }
 
@@ -65,7 +41,7 @@ class Main extends CI_Controller {
 
 	public function register()
 	{
-		if ($this->session->userdata('user_id')) {
+		if ($this->session->userdata('is_login')) {
 	        redirect('/');
 	    }
 
@@ -75,7 +51,7 @@ class Main extends CI_Controller {
 
 	public function reset_password()
 	{
-		if ($this->session->userdata('user_id')) {
+		if ($this->session->userdata('is_login')) {
 	        redirect('/profile');
 	    }
 
@@ -85,7 +61,7 @@ class Main extends CI_Controller {
 
 	public function profile()
 	{
-		if (!$this->session->userdata('user_id')) {
+		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
 	    }
 
@@ -107,7 +83,7 @@ class Main extends CI_Controller {
 
 	public function report($code)
 	{
-		if (!$this->session->userdata('user_id')) {
+		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
 	    }
 
@@ -118,7 +94,7 @@ class Main extends CI_Controller {
 
 	public function account()
 	{
-		if (!$this->session->userdata('user_id')) {
+		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
 	    }
 
@@ -128,7 +104,7 @@ class Main extends CI_Controller {
 
 	public function institution()
 	{
-		if (!$this->session->userdata('user_id')) {
+		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
 	    }
 
@@ -136,12 +112,7 @@ class Main extends CI_Controller {
 		$this->load->view('layout/index', $data);
 	}
 
-	public function logout()
-    {
-        // Hapus semua session
-        $this->session->sess_destroy();
+	
 
-        // Redirect ke halaman login
-        redirect('/welcome');
-    }
+	/* ====================== END LINE ==========================*/
 }

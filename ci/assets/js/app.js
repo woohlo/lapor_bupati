@@ -1,17 +1,44 @@
+const baseUrl = "/lapor_bupati/ci";
+
 function goTo(link, delay = 0) {
 	if (typeof link === "string" && link.trim() !== "") {
 		setTimeout(() => {
-			window.location.href = "/lapor_bupati/ci/" + link;
+			window.location.href = `${baseUrl}/${link}`;
 		}, delay);
 	} else {
 		console.warn("Link tidak valid:", link);
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-	const swiperElement = document.querySelector(".mySwiper");
+function removeInitScript(el) {
+	const isElement = document.querySelector(`#${el}`);
+	if (isElement) {
+		setTimeout(() => {
+			isElement.remove();
+		}, 2000);
+	}
+}
+
+$(document).on("click", ".toggle-password", function (e) {
+	e.preventDefault();
+
+	const targetSelector = $(this).data("target");
+	const $input = $(targetSelector);
+	const $icon = $(this).find("i");
+
+	if ($input.length) {
+		const isPassword = $input.attr("type") === "password";
+		$input.attr("type", isPassword ? "text" : "password");
+		$icon
+			.toggleClass("bi-eye-fill", isPassword)
+			.toggleClass("bi-eye-slash-fill", !isPassword);
+	}
+});
+
+async function initSwiper(el) {
+	const swiperElement = document.querySelector(`.${el}`);
 	if (swiperElement) {
-		const swiper = new Swiper(".mySwiper", {
+		const swiper = new Swiper(`.${el}`, {
 			loop: true,
 			pagination: {
 				el: ".swiper-pagination",
@@ -27,116 +54,120 @@ document.addEventListener("DOMContentLoaded", function () {
 			},
 		});
 	} else {
-		console.warn("Element .mySwiper tidak ditemukan!");
+		console.warn("Element swiper tidak ditemukan!");
 	}
+}
 
-	const formLogin = document.querySelector("#formLogin");
+$(document).on("submit", "#formLogin", async function (e) {
+	e.preventDefault();
 
-	if (formLogin) {
-		document
-			.getElementById("formLogin")
-			.addEventListener("submit", function (e) {
-				e.preventDefault();
+	const formData = new FormData(this);
 
-				// Lakukan validasi atau proses form di sini jika perlu
+	Swal.fire({
+		title: "Mohon tunggu...",
+		text: "Sedang memproses login",
+		allowOutsideClick: false,
+		didOpen: () => {
+			Swal.showLoading();
+		},
+	});
 
-				const myModal = new bootstrap.Modal(
-					document.getElementById("modalLoginSuccess"),
-				);
-				myModal.show();
-				goTo("login?is_login=1", 2000);
+	try {
+		const response = await fetch(`${baseUrl}/process-login`, {
+			method: "POST",
+			body: formData,
+		});
+
+		const result = await response.json();
+		Swal.close();
+
+		if (!result.success) {
+			Swal.fire({
+				icon: "error",
+				title: "Login Gagal",
+				text: result.message || "Terjadi kesalahan saat login.",
 			});
+			return;
+		}
+
+		const myModal = new bootstrap.Modal(
+			document.getElementById("modalLoginSuccess"),
+		);
+		myModal.show();
+		goTo("/", 2000);
+	} catch (error) {
+		Swal.close();
+		Swal.fire({
+			icon: "error",
+			title: "Terjadi Kesalahan",
+			text: "Gagal memproses permintaan.",
+		});
 	}
+});
 
-	const formRegister = document.querySelector("#formRegister");
+$(document).on("submit", "#formRegister", async function () {
+	e.preventDefault();
+	const myModal = new bootstrap.Modal(
+		document.getElementById("modalRegisterSuccess"),
+	);
+	myModal.show();
+	goTo("login?is_login=1", 2000);
+});
 
-	if (formRegister) {
-		document
-			.getElementById("formRegister")
-			.addEventListener("submit", function (e) {
-				e.preventDefault();
+$(document).on("submit", "#formReport", async function () {
+	e.preventDefault();
+	const myModal = new bootstrap.Modal(
+		document.getElementById("modalReportSuccess"),
+	);
+	myModal.show();
+	setTimeout(() => {
+		location.reload();
+	}, 2000);
+});
 
-				// Lakukan validasi atau proses form di sini jika perlu
+$(document).on("click", "#logoutBtn", async function () {
+	e.preventDefault();
 
-				const myModal = new bootstrap.Modal(
-					document.getElementById("modalRegisterSuccess"),
-				);
-				myModal.show();
-				goTo("login?is_login=1", 2000);
-			});
-	}
+	Swal.fire({
+		title: "Keluar",
+		text: "Apakah Anda yakin ingin keluar akun?",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#d33",
+		cancelButtonColor: "#6c757d",
+		confirmButtonText: "Ya, Keluar",
+		cancelButtonText: "Batal",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			goTo("logout");
+		}
+	});
+});
 
-	const formReport = document.querySelector("#formReport");
+$(document).on("click", "#clearHistory", async function () {
+	e.preventDefault();
 
-	if (formReport) {
-		document
-			.getElementById("formReport")
-			.addEventListener("submit", function (e) {
-				e.preventDefault();
-
-				// Lakukan validasi atau proses form di sini jika perlu
-
-				const myModal = new bootstrap.Modal(
-					document.getElementById("modalReportSuccess"),
-				);
-				myModal.show();
+	Swal.fire({
+		title: "Hapus Riwayat",
+		text: "Apakah Anda yakin ingin menghapus semua riwayat pelaporan?",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#d33",
+		cancelButtonColor: "#6c757d",
+		confirmButtonText: "Ya, Hapus Semua",
+		cancelButtonText: "Batal",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			Swal.fire({
+				title: "Riwayat berhasil dihapus!",
+				icon: "success",
+				timer: 1500,
+				showConfirmButton: false,
+			}).then(() => {
 				setTimeout(() => {
 					location.reload();
 				}, 2000);
 			});
-	}
-
-	const logoutBtn = document.querySelector("#logoutBtn");
-	if (logoutBtn) {
-		document
-			.getElementById("logoutBtn")
-			.addEventListener("click", function () {
-				Swal.fire({
-					title: "Keluar",
-					text: "Apakah Anda yakin ingin keluar akun?",
-					icon: "warning",
-					showCancelButton: true,
-					confirmButtonColor: "#d33",
-					cancelButtonColor: "#6c757d",
-					confirmButtonText: "Ya, Keluar",
-					cancelButtonText: "Batal",
-				}).then((result) => {
-					if (result.isConfirmed) {
-						goTo("logout");
-					}
-				});
-			});
-	}
-
-	const clearHistory = document.querySelector("#clearHistory");
-	if (clearHistory) {
-		document
-			.getElementById("clearHistory")
-			.addEventListener("click", function () {
-				Swal.fire({
-					title: "Hapus Riwayat",
-					text: "Apakah Anda yakin ingin menghapus semua riwayat pelaporan?",
-					icon: "warning",
-					showCancelButton: true,
-					confirmButtonColor: "#d33",
-					cancelButtonColor: "#6c757d",
-					confirmButtonText: "Ya, Hapus Semua",
-					cancelButtonText: "Batal",
-				}).then((result) => {
-					if (result.isConfirmed) {
-						Swal.fire({
-							title: "Riwayat berhasil dihapus!",
-							icon: "success",
-							timer: 1500,
-							showConfirmButton: false,
-						}).then(() => {
-							// Ganti dengan redirect/logout kamu
-							setTimeout(() => {
-								location.reload();
-							}, 2000);
-						});
-					}
-				});
-			});
-	}
+		}
+	});
 });

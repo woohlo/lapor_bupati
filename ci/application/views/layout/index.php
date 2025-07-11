@@ -1,3 +1,5 @@
+<?php $versionDate = date('ymdhis');?>
+
 <!doctype html>
 <html lang="id">
   <head>
@@ -40,9 +42,9 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/height.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/css/color.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('assets/css/custom.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('assets/css/responsive.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/custom.css?ver=' . $versionDate) ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/app.css?ver=' . $versionDate) ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/responsive.css?ver=' . $versionDate) ?>" />
 
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/vendor/sweetalert2/sweetalert2.min.css') ?>" />
@@ -51,6 +53,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/vendor/aos/aos.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/vendor/glightbox/css/glightbox.min.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/vendor/swiper/swiper-bundle.min.css') ?>" />
+
+    <script src="<?= base_url('assets/vendor/jquery/jquery-3.7.1.min.js') ?>"></script>
   </head>
   <body class="index-page">
     <div id="app">
@@ -72,6 +76,6 @@
     <script src="<?= base_url('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/isotope-layout/isotope.pkgd.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/script.js') ?>"></script>
-    <script src="<?= base_url('assets/js/app.js') ?>"></script>
+    <script src="<?= base_url('assets/js/app.js?ver=' . $versionDate) ?>"></script>
   </body>
 </html>
