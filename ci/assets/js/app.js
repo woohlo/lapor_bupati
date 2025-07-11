@@ -94,7 +94,7 @@ $(document).on("submit", "#formLogin", async function (e) {
 			document.getElementById("modalLoginSuccess"),
 		);
 		myModal.show();
-		goTo("/", 2000);
+		goTo("/", 1500);
 	} catch (error) {
 		Swal.close();
 		Swal.fire({
@@ -105,7 +105,7 @@ $(document).on("submit", "#formLogin", async function (e) {
 	}
 });
 
-$(document).on("submit", "#formRegister", async function () {
+$(document).on("submit", "#formRegister", async function (e) {
 	e.preventDefault();
 	const myModal = new bootstrap.Modal(
 		document.getElementById("modalRegisterSuccess"),
@@ -114,7 +114,7 @@ $(document).on("submit", "#formRegister", async function () {
 	goTo("login?is_login=1", 2000);
 });
 
-$(document).on("submit", "#formReport", async function () {
+$(document).on("submit", "#formReport", async function (e) {
 	e.preventDefault();
 	const myModal = new bootstrap.Modal(
 		document.getElementById("modalReportSuccess"),
@@ -125,7 +125,7 @@ $(document).on("submit", "#formReport", async function () {
 	}, 2000);
 });
 
-$(document).on("click", "#logoutBtn", async function () {
+$(document).on("click", "#logoutBtn", async function (e) {
 	e.preventDefault();
 
 	Swal.fire({
@@ -144,7 +144,7 @@ $(document).on("click", "#logoutBtn", async function () {
 	});
 });
 
-$(document).on("click", "#clearHistory", async function () {
+$(document).on("click", "#clearHistory", async function (e) {
 	e.preventDefault();
 
 	Swal.fire({
