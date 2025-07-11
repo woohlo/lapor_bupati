@@ -5,71 +5,71 @@
 		>
 		<div class="box-image">
 			<a class="btn" href="<?php echo base_url('/');?>"
-			><img
-			class="xs"
-			src="assets/images/logo.png"
-			/></a>
+				><img
+				class="xs"
+				src="assets/images/logo.png"
+				/></a>
+			</div>
+			<div
+			class="header-app-title text-center w-75 text-dark fw-800 ls-sm fs-20px"
+			>
+			Pilih Instansi
 		</div>
-		<div
-		class="header-app-title text-center w-75 text-dark fw-800 ls-sm fs-20px"
-		>
-		Pilih Instansi
 	</div>
-</div>
-<div class="content mb-5 mt-4 has-header">
-	<div class="col-11 m-auto">
-		<div class="row">
+	<div class="content mb-5 mt-4 has-header">
+		<div class="col-11 m-auto">
+			<div class="row">
+				<div class="col-3 mb-3">
+					<a
+					href="<?php echo base_url('/report/disdik');?>"
+					class="btn btn-lg w-100 h-100 bg-lighter rounded-md lh-normal"
+					><i
+					class="icon bi bi-mortarboard-fill text-primary fs-50px"
+					></i>
+					<span
+					class="d-block fs-13px text-dark fw-600"
+					>Disdik</span
+					>
+				</a>
+			</div>
 			<div class="col-3 mb-3">
 				<a
-				href="<?php echo base_url('/report/disdik');?>"
+				href="<?php echo base_url('/report/diskes');?>"
 				class="btn btn-lg w-100 h-100 bg-lighter rounded-md lh-normal"
 				><i
-				class="icon bi bi-mortarboard-fill text-primary fs-50px"
+				class="icon bi bi-hospital-fill text-orange fs-50px"
 				></i>
 				<span
 				class="d-block fs-13px text-dark fw-600"
-				>Disdik</span
+				>Diskes</span
 				>
 			</a>
 		</div>
 		<div class="col-3 mb-3">
 			<a
-			href="<?php echo base_url('/report/diskes');?>"
+			href="<?php echo base_url('/report/dukcapil');?>"
 			class="btn btn-lg w-100 h-100 bg-lighter rounded-md lh-normal"
 			><i
-			class="icon bi bi-hospital-fill text-orange fs-50px"
+			class="icon bi bi-person-vcard-fill text-info fs-50px"
 			></i>
 			<span
 			class="d-block fs-13px text-dark fw-600"
-			>Diskes</span
+			>Dukcapil</span
 			>
 		</a>
 	</div>
 	<div class="col-3 mb-3">
 		<a
-		href="<?php echo base_url('/report/dukcapil');?>"
+		href="<?php echo base_url('/report/bpd');?>"
 		class="btn btn-lg w-100 h-100 bg-lighter rounded-md lh-normal"
 		><i
-		class="icon bi bi-person-vcard-fill text-info fs-50px"
+		class="icon bi bi-building-fill-check text-danger fs-50px"
 		></i>
 		<span
 		class="d-block fs-13px text-dark fw-600"
-		>Dukcapil</span
+		>BPD</span
 		>
 	</a>
-</div>
-<div class="col-3 mb-3">
-	<a
-	href="<?php echo base_url('/report/bpd');?>"
-	class="btn btn-lg w-100 h-100 bg-lighter rounded-md lh-normal"
-	><i
-	class="icon bi bi-building-fill-check text-danger fs-50px"
-	></i>
-	<span
-	class="d-block fs-13px text-dark fw-600"
-	>BPD</span
-	>
-</a>
 </div>
 <div class="col-3 mb-3">
 	<a

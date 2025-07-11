@@ -6,11 +6,16 @@ class ApiLibrary
     protected $CI;
     protected $base_url = 'http://apilapor.nettacode.com';
     protected $headers;
-    protected $token = 'b5d0310f10015846d42c50cffc7106eab0de503a9ed1dfda940d2467c2099dc1';
+    protected $token;
 
     public function __construct($config = [])
     {
         $this->CI =& get_instance();
+        $this->CI->load->library('session');
+
+        if ($this->CI->session->userdata('token')) {
+            $this->token = $this->CI->session->userdata('token');
+        }
 
         // Konfigurasi default
         $this->base_url = isset($config['base_url']) ? rtrim($config['base_url'], '/') : $this->base_url;
@@ -28,6 +33,11 @@ class ApiLibrary
     public function setHeaders($headers = [])
     {
         $this->headers = $headers;
+    }
+
+    public function setToken($token)
+    {
+        $this->token = trim($token);
     }
 
     public function get($endpoint, $params = [])

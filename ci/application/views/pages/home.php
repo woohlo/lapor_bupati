@@ -54,36 +54,8 @@
         </div>
       </div>
     </div>
-    <div
-    class="menu-app d-flex align-items-center justify-content-between py-1 px-5 border-top shadow-top"
-    >
-    <a href="<?php echo base_url('/');?>" class="btn btn-md text-app fs-24px lh-normal"
-      ><i class="icon bi bi-chat-dots-fill"></i>
-      <span class="d-block fs-12px text-app fw-600">Lapor</span>
-    </a>
-    <a
-    href="<?php echo base_url('/institution');?>"
-    class="btn btn-md text-gray fs-24px lh-normal"
-    ><i class="icon bi bi-grid"></i
-    ><span class="d-block fs-12px text-gray fw-600"
-    >Instansi</span
-    ></a
-    >
-    <a
-    href="<?php echo base_url('/history');?>"
-    class="btn btn-md text-gray fs-24px lh-normal"
-    ><i class="icon bi bi-clock"></i
-    ><span class="d-block fs-12px text-gray fw-600"
-    >Riwayat</span
-    ></a
-    >
-    <a
-    href="<?php echo base_url('/account');?>"
-    class="btn btn-md text-gray fs-24px lh-normal"
-    ><i class="icon bi bi-person"></i
-    ><span class="d-block fs-12px text-gray fw-600">Akun</span></a
-    >
-  </div>
+    
+    <?php $this->load->view('./layout/menu', ['is_menu' => 'home']);?>
 </div>
 </section>
 

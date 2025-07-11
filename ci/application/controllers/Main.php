@@ -6,6 +6,7 @@ class Main extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
+        $this->load->library(['ApiLibrary','ServiceLibrary']);
     }
 
 
@@ -108,11 +109,25 @@ class Main extends CI_Controller {
 	        redirect('/welcome');
 	    }
 
+	    $institutions = [];
+	    $result = $this->apilibrary->post('user/viewcategory');
+	    if($result['success']){
+	    	if(is_array($result['data']) && !empty($result['data']) && isset($result['data']['data'])){
+	    		$result_data = $result['data']['data'];
+	    		if(is_array($result_data) && !empty($result_data)){
+	    			$institutions = $result_data;
+	    		}
+	    	}
+	    }
+
 		$data['content'] = 'pages/institution';
+		$data['data'] = [
+			'institutions' => $institutions
+		];
 		$this->load->view('layout/index', $data);
 	}
 
-	
+
 
 	/* ====================== END LINE ==========================*/
 }
