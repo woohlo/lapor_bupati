@@ -17,7 +17,7 @@ $is_empty_text = $is_empty_text . ' (mungkin karena data belum tersedia, sesi lo
 		<div class="box-image mb-2">
 			<img
 			class="md"
-			src="assets/images/empty.png"
+			src="<?php echo base_url('/assets/images/empty.png');?>"
 			/>
 		</div>
 		<h3 class="text-dark"><?php echo $is_empty_title;?></h3>

@@ -5,7 +5,7 @@
     >
     <div class="box-image">
       <a class="btn" href="<?php echo base_url('/');?>"
-        ><img class="xs" src="assets/images/logo.png"
+        ><img class="xs" src="<?php echo base_url('/assets/images/logo.png');?>"
         /></a>
       </div>
     </div>
@@ -17,10 +17,10 @@
             <div class="swiper-wrapper">
               <!-- Slide 1 -->
               <div class="swiper-slide">
-                <img src="assets/images/kuburaya.jpg" alt="KubuRaya" />
+                <img src="<?php echo base_url('/assets/images/kuburaya.jpg');?>" alt="KubuRaya" />
               </div>
               <div class="swiper-slide">
-                <img src="assets/images/kuburaya2.jpg" alt="KubuRaya" />
+                <img src="<?php echo base_url('/assets/images/kuburaya2.jpg');?>" alt="KubuRaya" />
               </div>
             </div>
 

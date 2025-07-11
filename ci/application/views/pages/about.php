@@ -21,7 +21,7 @@
 				<div class="box-image mb-2">
 					<img
 					class="sm"
-					src="assets/images/logo.png"
+					src="<?php echo base_url('/assets/images/logo.png');?>"
 					/>
 				</div>
 				<p class="text-dark fs-16px fw-800">

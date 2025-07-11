@@ -7,7 +7,7 @@
 			<a class="btn" href="<?php echo base_url('/');?>"
 				><img
 				class="xs"
-				src="assets/images/logo.png"
+				src="<?php echo base_url('/assets/images/logo.png');?>"
 				/></a>
 			</div>
 			<div

@@ -20,7 +20,7 @@
     </div>
     <div class="container mt-4 p-0">
       <form id="formReport">
-        <input type="hidden" name="idcat" value="<?php echo $data['id'];?>">
+        <input type="hidden" name="institution" value="<?php echo $data['id'];?>">
         <div class="form-group mb-3">
           <label class="form-label text-dark fw-600 fs-14px"
           >Judul Pelaporan</label
@@ -71,7 +71,7 @@
         <div class="modal-content">
           <div class="modal-body">
             <div class="box-image">
-              <img class="sm" src="assets/images/logo.png" />
+              <img class="sm" src="<?php echo base_url('/assets/images/logo.png');?>" />
             </div>
             <div class="text-center mt-2">
               <div class="text-app fw-600 fs-15px mb-2">
@@ -80,7 +80,7 @@
               <p class="mb-1">Terima kasih atas partisipasimu.</p>
               <p class="mb-0">Laporan kamu sedang kami proses.</p>
               <div class="box-image mt-3">
-                <img class="sm" src="assets/images/loading.png" />
+                <img class="sm" src="<?php echo base_url('/assets/images/loading.png');?>" />
               </div>
             </div>
           </div>

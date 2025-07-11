@@ -111,18 +111,56 @@ $(document).on("submit", "#formRegister", async function (e) {
 		document.getElementById("modalRegisterSuccess"),
 	);
 	myModal.show();
-	goTo("login?is_login=1", 2000);
+	goTo("login", 2000);
 });
 
 $(document).on("submit", "#formReport", async function (e) {
 	e.preventDefault();
-	const myModal = new bootstrap.Modal(
-		document.getElementById("modalReportSuccess"),
-	);
-	myModal.show();
-	setTimeout(() => {
-		location.reload();
-	}, 2000);
+
+	const formData = new FormData(this);
+
+	Swal.fire({
+		title: "Mohon tunggu...",
+		text: "Sedang mengirim laporan",
+		allowOutsideClick: false,
+		didOpen: () => {
+			Swal.showLoading();
+		},
+	});
+
+	try {
+		const response = await fetch(`${baseUrl}/process-report`, {
+			method: "POST",
+			body: formData,
+		});
+
+		const result = await response.json();
+		Swal.close();
+
+		if (!result.success) {
+			Swal.fire({
+				icon: "error",
+				title: "Laporan Gagal",
+				text:
+					result.message ||
+					"Terjadi kesalahan saat mengirim laporan.",
+			});
+			return;
+		}
+
+		const myModal = new bootstrap.Modal(
+			document.getElementById("modalReportSuccess"),
+		);
+		myModal.show();
+		goTo("institution", 1500);
+	} catch (error) {
+		Swal.close();
+		Swal.fire({
+			icon: "error",
+			title: "Terjadi Kesalahan",
+			text: "Gagal memproses permintaan.",
+		});
+	}
 });
 
 $(document).on("click", "#logoutBtn", async function (e) {

@@ -53,39 +53,34 @@ class Report extends CI_Controller {
 
 	public function process()
 	{
+		if (!$this->session->userdata('is_login')) {
+	        return $this->servicelibrary->resError();
+	    }
+
 		$payload = $this->input->post();
 
-		if(!isset($payload['phone']) || !$this->servicelibrary->isExist($payload['phone'])){
-			return $this->servicelibrary->resError('Phone tidak valid');
+		if(!isset($payload['title']) || !$this->servicelibrary->isExist($payload['title'])){
+			return $this->servicelibrary->resError('Judul tidak valid');
 		}
 
-		if(!isset($payload['password']) || !$this->servicelibrary->isExist($payload['password'])){
-			return $this->servicelibrary->resError('Password tidak valid');
+		if(!isset($payload['report']) || !$this->servicelibrary->isExist($payload['report'])){
+			return $this->servicelibrary->resError('Keterangan tidak valid');
 		}
 
 		$sendData = [
-			'phone' => $payload['phone'],
-			'password' => $payload['password'],
+			'idcat' => $payload['institution'],
+			'title' => $payload['title'],
+			'report' => $payload['report'],
+			'token' => $this->session->userdata('token')
 		];
+		$reportData = json_encode($sendData);
 
-		$result = $this->apilibrary->post('user/userlogin', $sendData);
+		$result = $this->apilibrary->post('user/addlapor', ['data' => $reportData]);
 		if(!$result['success']){
 			return $this->servicelibrary->resError($result['message']);
 		}
 
-		if($result['success']){
-			if(is_array($result['data']) && !empty($result['data']) && isset($result['data']['Data'])){
-				$login_data = $result['data']['Data'];
-				if(is_array($login_data) && !empty($login_data)){
-
-					$is_auth = $login_data[0];
-					$is_auth['is_login'] = true;
-
-					$this->session->set_userdata($is_auth);
-					return $this->servicelibrary->resSuccess('Login berhasil', $is_auth);
-				}
-			}
-		}
+		return $this->servicelibrary->resSuccess('Laporan berhasil dikirim');
 	}
 
 	public function history()

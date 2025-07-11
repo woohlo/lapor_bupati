@@ -117,7 +117,7 @@ aria-hidden="true"
 	<div class="modal-content">
 		<div class="modal-body">
 			<div class="box-image">
-				<img src="assets/images/img-login-success.png" />
+				<img src="<?php echo base_url('/assets/images/img-login-success.png');?>" />
 			</div>
 			<div class="text-center mt-2">
 				<div class="text-app fw-600 fs-15px mb-2">
@@ -126,7 +126,7 @@ aria-hidden="true"
 				<p class="m-0 p-0">Mohon tunggu sebentar...</p>
 				<p class="m-0 p-0">Kamu akan diarahkan ke halaman utama.</p>
 				<div class="box-image mt-3">
-					<img class="sm" src="assets/images/loading.png" />
+					<img class="sm" src="<?php echo base_url('/assets/images/loading.png');?>" />
 				</div>
 			</div>
 		</div>

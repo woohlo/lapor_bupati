@@ -29,7 +29,7 @@
 				<div class="box-image">
 					<img
 					class="md"
-					src="assets/images/user.png"
+					src="<?php echo base_url('/assets/images/user.png');?>"
 					/>
 				</div>
 				<div
