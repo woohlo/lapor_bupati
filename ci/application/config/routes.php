@@ -20,15 +20,8 @@ $route['translate_uri_dashes'] = FALSE;
 */
 
 $route['welcome'] = 'Main/welcome';
-$route['login'] = 'Main/login';
-$route['register'] = 'Main/register';
-$route['reset-password'] = 'Main/reset_password';
-$route['profile'] = 'Main/profile';
 $route['about'] = 'Main/about';
-$route['history'] = 'Main/history';
-$route['account'] = 'Main/account';
-$route['institution'] = 'Main/institution';
-$route['report/(:any)'] = 'Main/report/$1';
+
 
 /*
 | -------------------------------------------------------------------------
@@ -37,5 +30,22 @@ $route['report/(:any)'] = 'Main/report/$1';
 |
 */
 
+$route['login'] = 'Auth/login';
+$route['register'] = 'Auth/register';
 $route['logout'] = 'Auth/logout';
-$route['process-login'] = 'Auth/login';
+$route['process-login'] = 'Auth/process_login';
+$route['account'] = 'Auth/account';
+$route['reset-password'] = 'Auth/reset_password';
+$route['profile'] = 'Auth/profile';
+
+/*
+| -------------------------------------------------------------------------
+| REPORT ROUTING
+| -------------------------------------------------------------------------
+|
+*/
+
+$route['institution'] = 'Report/institution';
+$route['report/(:any)'] = 'Report/index/$1';
+$route['process-report'] = 'Report/process';
+$route['history'] = 'Report/history';

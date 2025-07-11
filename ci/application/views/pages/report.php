@@ -9,7 +9,7 @@
     <div
     class="header-app-title text-center w-75 text-dark fw-800 ls-sm fs-20px text-capitalize"
     >
-    <?php echo $data['code'];?>
+    <?php echo $data['title'];?>
   </div>
 </div>
 <div class="content mt-3 has-header">
@@ -20,11 +20,13 @@
     </div>
     <div class="container mt-4 p-0">
       <form id="formReport">
+        <input type="hidden" name="idcat" value="<?php echo $data['id'];?>">
         <div class="form-group mb-3">
           <label class="form-label text-dark fw-600 fs-14px"
           >Judul Pelaporan</label
           >
           <input
+          name="title"
           type="text"
           required
           placeholder="Tulis Judul"
@@ -36,6 +38,7 @@
           >Isi Pelaporan</label
           >
           <textarea
+          name="report"
           required
           placeholder="Keterangan lengkap pelaporan"
           class="form-control form-control-lg bg-lighter rounded-lg"

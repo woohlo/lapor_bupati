@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Report extends CI_Controller {
 
 	public function __construct()
     {
@@ -9,58 +9,49 @@ class Auth extends CI_Controller {
         $this->load->library(['ApiLibrary','ServiceLibrary']);
     }
 
-    public function login()
-	{
-		if ($this->session->userdata('is_login')) {
-	        redirect('/');
-	    }
-
-		$data['content'] = 'pages/login';
-		$this->load->view('layout/index', $data);
-	}
-
-	public function register()
-	{
-		if ($this->session->userdata('is_login')) {
-	        redirect('/');
-	    }
-
-		$data['content'] = 'pages/register';
-		$this->load->view('layout/index', $data);
-	}
-
-	public function reset_password()
-	{
-		if ($this->session->userdata('is_login')) {
-	        redirect('/profile');
-	    }
-
-		$data['content'] = 'pages/reset_password';
-		$this->load->view('layout/index', $data);
-	}
-
-	public function account()
+    public function index($id)
 	{
 		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
 	    }
 
-		$data['content'] = 'pages/account';
+	    $payload = $this->input->get();
+	    $title = 'Instansi';
+	    if(isset($payload['title']) && !empty($payload['title'])){
+	    	$title = $payload['title'];
+	    }
+
+		$data['content'] = 'pages/report';
+		$data['data'] = ['id' => $id, 'title' => $title];
 		$this->load->view('layout/index', $data);
 	}
 
-	public function profile()
+    public function institution()
 	{
 		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
 	    }
 
-		$data['content'] = 'pages/profile';
+	    $institutions = [];
+	    $result = $this->apilibrary->post('user/viewcategory');
+	    if($result['success']){
+	    	if(is_array($result['data']) && !empty($result['data']) && isset($result['data']['data'])){
+	    		$result_data = $result['data']['data'];
+	    		if(is_array($result_data) && !empty($result_data)){
+	    			$institutions = $result_data;
+	    		}
+	    	}
+	    }
+
+		$data['content'] = 'pages/institution';
+		$data['data'] = [
+			'institutions' => $institutions
+		];
 		$this->load->view('layout/index', $data);
 	}
 
 
-	public function process_login()
+	public function process()
 	{
 		$payload = $this->input->post();
 
@@ -97,11 +88,11 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	public function logout()
-    {
-        $this->session->sess_destroy();
-        redirect('/welcome');
-    }
+	public function history()
+	{
+		$data['content'] = 'pages/history';
+		$this->load->view('layout/index', $data);
+	}
 
 
 /* ====================== END LINE ==========================*/
