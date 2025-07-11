@@ -42,7 +42,7 @@
 				foreach ($data['reports'] as $report) 
 				{
 					?>
-					<a href="#">
+					<a href="<?php echo base_url('/report-detail/' . $report['idreport']);?>">
 						<div class="card bg-lighter rounded-md border-0 mb-3">
 							<div class="card-body d-flex justify-content-between align-items-center">
 								<div>

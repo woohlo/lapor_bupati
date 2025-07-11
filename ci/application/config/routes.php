@@ -47,5 +47,6 @@ $route['profile'] = 'Auth/profile';
 
 $route['institution'] = 'Report/institution';
 $route['report/(:any)'] = 'Report/index/$1';
+$route['report-detail/(:any)'] = 'Report/detail/$1';
 $route['process-report'] = 'Report/process';
 $route['history'] = 'Report/history';

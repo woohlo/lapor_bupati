@@ -9,7 +9,7 @@ class Report extends CI_Controller {
         $this->load->library(['ApiLibrary','ServiceLibrary']);
     }
 
-    public function index($id)
+    public function index($idcat)
 	{
 		if (!$this->session->userdata('is_login')) {
 	        redirect('/welcome');
@@ -22,7 +22,20 @@ class Report extends CI_Controller {
 	    }
 
 		$data['content'] = 'pages/report';
-		$data['data'] = ['id' => $id, 'title' => $title];
+		$data['data'] = ['id' => $idcat, 'title' => $title];
+		$this->load->view('layout/index', $data);
+	}
+
+	public function detail($idreport)
+	{
+		if (!$this->session->userdata('is_login')) {
+	        redirect('/welcome');
+	    }
+
+	    $payload = $this->input->get();
+
+		$data['content'] = 'pages/report_detail';
+		$data['data'] = ['id' => $idreport];
 		$this->load->view('layout/index', $data);
 	}
 
